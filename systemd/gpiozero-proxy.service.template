@@ -1,0 +1,18 @@
+[Unit]
+Description=GPIOZero Proxy Server
+After=network.target
+
+[Service]
+User={{USER}}
+Group={{GROUP}}
+WorkingDirectory={{WORKDIR}}
+ExecStart={{PYTHON_EXEC}} -m src.main --config config.yaml --log-level INFO
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
+
