@@ -18,7 +18,12 @@ A WebSocket proxy server for controlling Raspberry Pi GPIO devices using `gpioze
    pip install -r requirements.txt
    ```
 
-2. Run the server:
+2. Set up configuration:
+   ```bash
+   cp config.yaml.example config.yaml
+   ```
+
+3. Run the server:
    ```bash
    python -m src.main --config config.yaml --log-level INFO
    ```

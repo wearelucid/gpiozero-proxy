@@ -10,6 +10,21 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 USER_NAME=$(whoami)
 GROUP_NAME=$(id -gn)
 
+# Configuration Setup
+CONFIG_FILE="$SCRIPT_DIR/config.yaml"
+EXAMPLE_CONFIG="$SCRIPT_DIR/config.yaml.example"
+
+if [ ! -f "$CONFIG_FILE" ]; then
+    if [ -f "$EXAMPLE_CONFIG" ]; then
+        echo "Creating config.yaml from example..."
+        cp "$EXAMPLE_CONFIG" "$CONFIG_FILE"
+    else
+        echo "Warning: config.yaml.example not found!"
+    fi
+else
+    echo "config.yaml already exists, skipping creation."
+fi
+
 # Virtual Environment Setup
 VENV_DIR="$SCRIPT_DIR/venv"
 if [ ! -d "$VENV_DIR" ]; then
