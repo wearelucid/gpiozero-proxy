@@ -48,7 +48,26 @@ sudo journalctl -u gpiozero-proxy -f  # Follow logs
 
 ## Configuration
 
-Edit `config.yaml` to define your devices.
+Edit `config.yaml` to define your devices, then restart the server.
+
+Check the [gpiozero documentation](https://gpiozero.readthedocs.io/en/stable/) for the available component interfaces.
+
+**Python -> YAML Mapping**
+
+```python
+# Python implementation
+my_button = Button(2, pull_up=True, bounce_time=0.1)
+
+# YAML config equivalent
+- id: my_button
+  class: Button
+  args: [2]
+  kwargs:
+    pull_up: true
+    bounce_time: 0.1
+```
+
+**Example Config**
 
 ```yaml
 server:
@@ -97,6 +116,12 @@ The server supports the following methods.
 
 Executes a method on the `gpiozero` device instance.
 
+**Python equivalent**
+
+```python
+result = my_led.on()
+```
+
 **Request:**
 
 ```json
@@ -127,6 +152,12 @@ Executes a method on the `gpiozero` device instance.
 
 Reads a property value from the device.
 
+**Python equivalent**
+
+```python
+result = my_button.is_pressed
+```
+
 **Request:**
 
 ```json
@@ -154,6 +185,12 @@ Reads a property value from the device.
 ### 3. Write a Property
 
 Sets a property value on the device.
+
+**Python equivalent**
+
+```python
+my_led.value = 0.5
+```
 
 **Request:**
 
