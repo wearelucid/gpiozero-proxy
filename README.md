@@ -239,3 +239,7 @@ When the event triggers, the server sends a JSON-RPC notification (no `id`).
   }
 }
 ```
+
+## Client Libraries
+
+- TypeScript / JavaScript: [gpiozero-client-ts](https://github.com/wearelucid/gpiozero-client-ts)
