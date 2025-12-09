@@ -2,12 +2,6 @@
 
 A WebSocket proxy server for controlling Raspberry Pi GPIO devices using `gpiozero`, utilizing the **JSON-RPC 2.0** protocol.
 
-## Features
-
-- **Configurable**: Define devices in `config.yaml`.
-- **JSON-RPC 2.0 API**: Standardized protocol for commands and events.
-- **Extensible**: Supports any `gpiozero` class dynamically.
-
 ## Installation
 
 ### Manual Installation
