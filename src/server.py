@@ -37,7 +37,7 @@ class GPIOProxyServer:
         logger.info(f"Starting server on {self.config.server.host}:{self.config.server.port}")
         await start_server
 
-    async def handler(self, websocket: websockets.WebSocketServerProtocol, path: str):
+    async def handler(self, websocket: websockets.WebSocketServerProtocol):
         self.clients.add(websocket)
         logger.info(f"New client connected. Total clients: {len(self.clients)}")
         try:
